@@ -22,7 +22,9 @@ Background: movies have been added to database
   And I am on the RottenPotatoes home page
 
 Scenario: sort movies alphabetically
-  # your steps here
+  Given the movies exist
+  When user clicks on title header
+  Then user should see movies sorted alphabetically
 
 Scenario: sort movies in increasing order of release date
   # your steps here
