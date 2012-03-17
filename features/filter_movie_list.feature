@@ -27,7 +27,7 @@ Scenario: restrict to movies with 'PG' or 'R' ratings
   And I uncheck all ratings except "PG,R"
   When I click Refresh button
   Then I see "5,PG" and "6,R" rated movies
-  And I do not see movies except ratings "PG,R"
+  Then I do not see movies except ratings "PG,R"
   
   # enter step(s) to check the 'PG' and 'R' checkboxes
   # enter step(s) to uncheck all other checkboxes
@@ -36,7 +36,11 @@ Scenario: restrict to movies with 'PG' or 'R' ratings
   # enter step(s) to ensure that other movies are not visible
 
 Scenario: no ratings selected
-  # see assignment
+  Given I am on the RottenPotatoes home page
+  When I uncheck all ratings except ""
+  Then I do not see movies except ratings ""
 
 Scenario: all ratings selected
-  # see assignment
+  Given I am on the RottenPotatoes home page
+  When I check the ratings "PG,R,PG-13,G,NC-17"
+  Then I see all movies 
