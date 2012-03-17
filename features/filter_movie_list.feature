@@ -26,6 +26,8 @@ Scenario: restrict to movies with 'PG' or 'R' ratings
   When I check the ratings "PG,R"
   And I uncheck all ratings except "PG,R"
   When I click Refresh button
+  Then I see "5,PG" and "6,R" rated movies
+  And I do not see movies except ratings "PG,R"
   
   # enter step(s) to check the 'PG' and 'R' checkboxes
   # enter step(s) to uncheck all other checkboxes

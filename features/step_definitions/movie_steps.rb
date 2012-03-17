@@ -24,6 +24,23 @@ When /^I click Refresh button$/ do
   click_button "Refresh"
 end
 
+Then /^I see "(.*)" and "(.*)" rated movies$/ do |arg1,arg2|
+    pg=arg1.split(',')
+    r=arg2.split(',')
+    within_table('movies') do
+      page.has_xpath?("//tr", :text => pg[1], :count => pg[0])
+      page.has_xpath?("//tr", :text => r[1], :count => r[0])
+    end
+end
+
+Then /^I do not see movies except ratings "(.*)"$/ do |arg1|
+  Movie.all_ratings-arg1.split(',').each do |r|
+	within_table('movies') do
+		page.has_xpath?("//tr", :text => r, :count => 0)
+	end
+  end
+end
+
 # Make sure that one string (regexp) occurs before or after another one
 #   on the same page
 
