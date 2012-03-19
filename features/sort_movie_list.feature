@@ -7,24 +7,56 @@ Feature: display list of movies sorted by different criteria
 Background: movies have been added to database
   
   Given the following movies exist:
-  | title                   | rating | release_date |
-  | Aladdin                 | G      | 25-Nov-1992  |
-  | The Terminator          | R      | 26-Oct-1984  |
-  | When Harry Met Sally    | R      | 21-Jul-1989  |
-  | The Help                | PG-13  | 10-Aug-2011  |
-  | Chocolat                | PG-13  | 5-Jan-2001   |
-  | Amelie                  | R      | 25-Apr-2001  |
-  | 2001: A Space Odyssey   | G      | 6-Apr-1968   |
-  | The Incredibles         | PG     | 5-Nov-2004   |
-  | Raiders of the Lost Ark | PG     | 12-Jun-1981  |
-  | Chicken Run             | G      | 21-Jun-2000  |
-
+  | title                   | rating 	| release_date 			| more_info 				|
+  | Aladdin		    | G		| 1992-11-25 00:00:00 UTC	| More about Aladdin			|
+  | The Terminator	    | R		| 1984-10-26 00:00:00 UTC	| More about The Terminator		|
+  | When Harry Met Sally    | R		| 1989-07-21 00:00:00 UTC	| More about When Harry Met Sally	|
+  | The Help	            | PG-13	| 2011-08-10 00:00:00 UTC	| More about The Help			|
+  | Chocolat	            | PG-13	| 2001-01-05 00:00:00 UTC	| More about Chocolat			|
+  | Amelie	            | R		| 2001-04-25 00:00:00 UTC	| More about Amelie			|
+  | 2001: A Space Odyssey   | G		| 1968-04-06 00:00:00 UTC	| More about 2001: A Space Odyssey	|
+  | The Incredibles	    | PG	| 2004-11-05 00:00:00 UTC	| More about The Incredibles		|
+  | Raiders of the Lost Ark | PG	| 1981-06-12 00:00:00 UTC	| More about Raiders of the Lost Ark	|
+  | Chicken Run		    | G		| 2000-06-21 00:00:00 UTC	| More about Chicken Run		|
+  | Aladdin	            | G		| 1992-11-25 00:00:00 UTC	| More about Aladdin			|
+  | The Terminator	    | R		| 1984-10-26 00:00:00 UTC	| More about The Terminator		|
+  | When Harry Met Sally    | R		| 1989-07-21 00:00:00 UTC	| More about When Harry Met Sally	|
+  | The Help	            | PG-13	| 2011-08-10 00:00:00 UTC	| More about The Help			|
+  | Chocolat	            | PG-13	| 2001-01-05 00:00:00 UTC	| More about Chocolat			|
+  | Amelie	            | R		| 2001-04-25 00:00:00 UTC	| More about Amelie			|
+  | 2001: A Space Odyssey   | G		| 1968-04-06 00:00:00 UTC	| More about 2001: A Space Odyssey	|
+  | The Incredibles	    | PG	| 2004-11-05 00:00:00 UTC	| More about The Incredibles		|
+  | Raiders of the Lost Ark | PG	| 1981-06-12 00:00:00 UTC	| More about Raiders of the Lost Ark	|
+  | Chicken Run		    | G		| 2000-06-21 00:00:00 UTC	| More about Chicken Run		|
+  
   And I am on the RottenPotatoes home page
 
 Scenario: sort movies alphabetically
-  Given the movies exist
-  When user clicks on title header
-  Then user should see movies sorted alphabetically
+  When I check the ratings "PG,R,PG-13,G"
+  When I click Refresh button
+  When I click on "Movie Title" header of movies table
+  Then I should see movies table 
+  | Movie Title			| Rating | Release Date		    | More Info				 |
+  | 2001: A Space Odyssey	| G	 | 1968-04-06 00:00:00 UTC  | More about 2001: A Space Odyssey	 |
+  | 2001: A Space Odyssey 	| G	 | 1968-04-06 00:00:00 UTC  | More about 2001: A Space Odyssey	 |
+  | Aladdin 			| G	 | 1992-11-25 00:00:00 UTC  | More about Aladdin		 |
+  | Aladdin 			| G	 | 1992-11-25 00:00:00 UTC  | More about Aladdin		 |
+  | Amelie 			| R	 | 2001-04-25 00:00:00 UTC  | More about Amelie			 |
+  | Amelie 			| R	 | 2001-04-25 00:00:00 UTC  | More about Amelie			 |
+  | Chicken Run 		| G	 | 2000-06-21 00:00:00 UTC  | More about Chicken Run		 |
+  | Chicken Run 		| G	 | 2000-06-21 00:00:00 UTC  | More about Chicken Run		 |
+  | Chocolat			| PG-13	 | 2001-01-05 00:00:00 UTC  | More about Chocolat		 |
+  | Chocolat			| PG-13	 | 2001-01-05 00:00:00 UTC  | More about Chocolat		 |
+  | Raiders of the Lost Ark	| PG	 | 1981-06-12 00:00:00 UTC  | More about Raiders of the Lost Ark |
+  | Raiders of the Lost Ark	| PG	 | 1981-06-12 00:00:00 UTC  | More about Raiders of the Lost Ark |
+  | The Help			| PG-13	 | 2011-08-10 00:00:00 UTC  | More about The Help		 |
+  | The Help			| PG-13	 | 2011-08-10 00:00:00 UTC  | More about The Help 		 |	
+  | The Incredibles		| PG	 | 2004-11-05 00:00:00 UTC  | More about The Incredibles   	 |	
+  | The Incredibles		| PG	 | 2004-11-05 00:00:00 UTC  | More about The Incredibles	 |
+  | The Terminator		| R	 | 1984-10-26 00:00:00 UTC  | More about The Terminator          |
+  | The Terminator		| R	 | 1984-10-26 00:00:00 UTC  | More about The Terminator          |
+  | When Harry Met Sally	| R	 | 1989-07-21 00:00:00 UTC  | More about When Harry Met Sally    |
+  | When Harry Met Sally	| R	 | 1989-07-21 00:00:00 UTC  | More about When Harry Met Sally    |
 
 Scenario: sort movies in increasing order of release date
   # your steps here

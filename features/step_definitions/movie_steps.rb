@@ -40,7 +40,11 @@ end
 # Make sure that one string (regexp) occurs before or after another one
 #   on the same page
 
-
+When /^I click on "(.*)" header of movies table$/ do |arg1|
+	within(:xpath, "//table[@id='movies']/thead/tr/th") do
+    		click_link('#{arg1}')
+  	end
+end
 
 
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
