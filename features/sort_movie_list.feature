@@ -59,5 +59,30 @@ Scenario: sort movies alphabetically
   | When Harry Met Sally	| R	 | 1989-07-21 00:00:00 UTC  | More about When Harry Met Sally    |
 
 Scenario: sort movies in increasing order of release date
-  # your steps here
+  When I check the ratings "PG,R,PG-13,G"
+  When I click Refresh button
+  When I click on "Release Date" header of movies table
+  When I click on "Release Date" header of movies table
+  Then I should see movies table
+  | Movie Title			| Rating	| Release Date			| More Info				|
+  | 2001: A Space Odyssey	| G		| 1968-04-06 00:00:00 UTC	| More about 2001: A Space Odyssey	|
+  | 2001: A Space Odyssey	| G		| 1968-04-06 00:00:00 UTC	| More about 2001: A Space Odyssey	|
+  | Raiders of the Lost Ark	| PG		| 1981-06-12 00:00:00 UTC	| More about Raiders of the Lost Ark	|
+  | Raiders of the Lost Ark	| PG		| 1981-06-12 00:00:00 UTC	| More about Raiders of the Lost Ark	|
+  | The Terminator		| R		| 1984-10-26 00:00:00 UTC	| More about The Terminator		|
+  | The Terminator		| R		| 1984-10-26 00:00:00 UTC	| More about The Terminator		|
+  | When Harry Met Sally	| R		| 1989-07-21 00:00:00 UTC	| More about When Harry Met Sally	|
+  | When Harry Met Sally	| R		| 1989-07-21 00:00:00 UTC	| More about When Harry Met Sally	|
+  | Aladdin			| G		| 1992-11-25 00:00:00 UTC	| More about Aladdin			|
+  | Aladdin			| G		| 1992-11-25 00:00:00 UTC	| More about Aladdin			|
+  | Chicken Run			| G		| 2000-06-21 00:00:00 UTC	| More about Chicken Run		|
+  | Chicken Run			| G		| 2000-06-21 00:00:00 UTC	| More about Chicken Run		|
+  | Chocolat			| PG-13		| 2001-01-05 00:00:00 UTC	| More about Chocolat			|
+  | Chocolat			| PG-13		| 2001-01-05 00:00:00 UTC	| More about Chocolat			|
+  | Amelie			| R		| 2001-04-25 00:00:00 UTC	| More about Amelie			|	
+  | Amelie			| R		| 2001-04-25 00:00:00 UTC	| More about Amelie			|	
+  | The Incredibles		| PG		| 2004-11-05 00:00:00 UTC	| More about The Incredibles		|	
+  | The Incredibles		| PG		| 2004-11-05 00:00:00 UTC	| More about The Incredibles		|
+  | The Help			| PG-13		| 2011-08-10 00:00:00 UTC	| More about The Help			|
+  | The Help			| PG-13		| 2011-08-10 00:00:00 UTC	| More about The Help			|
 

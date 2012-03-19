@@ -41,8 +41,8 @@ end
 #   on the same page
 
 When /^I click on "(.*)" header of movies table$/ do |arg1|
-	within(:xpath, "//table[@id='movies']/thead/tr/th") do
-    		click_link('#{arg1}')
+	within(:xpath, "//table[@id='movies']/thead/tr") do
+    		click_link("#{arg1}")
   	end
 end
 
