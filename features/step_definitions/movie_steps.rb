@@ -36,13 +36,6 @@ Then(/^I should see (.+) table$/) do |table_id, expected_table|
   expected_table.diff!(html_table)
 end
 
-Then /^I do not see movies except ratings "(.*)"$/ do |arg1|
-  Movie.all_ratings-arg1.split(',').each do |r|
-	within_table('movies') do
-		page.has_xpath?('.//td[2]', :text => r, :count =>0)
-	end
-  end
-end
 
 # Make sure that one string (regexp) occurs before or after another one
 #   on the same page
